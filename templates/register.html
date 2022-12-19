@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block context %}
+<h1>Registration</h1>
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="msg {{cat}}">{{ msg }}</div>
+{% endfor %}
+<form action="" method="post">
+    <div class="main">
+    <p><label>Username:</label> <input type="text" name="username" value="" required></p>
+    <p><label>Old:</label> <input type="text" name="old" value="" required></p>
+    <p><label>City:</label> <input type="text" name="city" value="" required></p>
+    <p><label>Email:</label> <input type="email" name="email" value="" required></p>
+    <p><label>Password:</label> <input type="password" name="psw" value="" required></p>
+    <p><label>RePassword:</label> <input type="password" name="repsw" value="" required></p>
+    <p><input type="submit" value="Registration"></p>
+    </div>
+</form>
+
+{% endblock %}
