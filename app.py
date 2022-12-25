@@ -19,6 +19,8 @@ class Users(db.Model):
     psw = db.Column(db.String(500), nullable=True)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
+    pr = db.relationship('Profiles', backref='users', uselist=False)
+
     def __str__(self):
         return f'User id: {self.id}'
 
@@ -40,7 +42,11 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    return render_template('index.html', title='Main page')
+    try:
+        info = db.session.query(Users).all()  # or info = User.query.all()
+    except Exception as e:
+        return e
+    return render_template('index.html', title='Main page', list=info)
 
 
 @app.route('/register', methods=['GET', 'POST'])

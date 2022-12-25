@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block context %}
-<p>Hi</p>
-
+<ul>
+    {% for i in list %}
+    <li><p>User id: {{ i.id }}, email: {{ i.email }}</p></li>
+    <ul>
+        <li>Name: {{ i.pr.username }}</li>
+        <li>Age: {{ i.pr.old }}</li>
+        <li>City: {{ i.pr.city }}</li>
+    </ul>
+    {% endfor%}
+</ul>
 {% endblock %}
