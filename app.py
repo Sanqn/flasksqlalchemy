@@ -55,7 +55,6 @@ def register():
                 psw=hash_psw
             )
             print(user.email)
-            print(user.psw)
             db.session.add(user)
             db.session.flush()
             db.session.commit()
