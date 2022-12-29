@@ -16,7 +16,7 @@ db.init_app(app)
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50), unique=True, nullable=True)
-    psw = db.Column(db.String(500), nullable=True)
+    psw = db.Column(db.String(400), nullable=True)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     pr = db.relationship('Profiles', backref='users', uselist=False)
